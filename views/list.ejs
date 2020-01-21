@@ -3,20 +3,38 @@
 <head>
     <meta charset="utf-8">
     <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-<h1><%= ejsday %></h1>
-    <% for (let i=0;i<ejsList.length;i++){ %>
-    <li><%= ejsList[i] %></li>
-    <%  }%>
+    <div class="box" id="heading">
+        <h1><%= ejsday %></h1>
+    </div>
+    <div class="box">
+        <% for (let i=0;i<ejsList.length;i++){ %>
+        <div class="item">
+            <input type="checkbox">
 
-    <form action="/" method="post">
+            <p><%= ejsList[i] %></p>
 
-        <input type="text" name="inputItem">
-        <button type="submit" name="button">Add</button>
+        </div>
+        <%  }%>
+        <form class="item" action="/" method="post">
 
-    </form>
+            <input type="text" name="inputItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="button">+</button>
+    
+        </form>
+
+
+    </div>
+
+
+
+
+
+
+    
 
 </body>
 

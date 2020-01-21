@@ -7,8 +7,8 @@ let itemlist = ["Drink more", "Study more", "Play more"];
 
 app.set('view engine', 'ejs');
 
-app.use(bodyparser.urlencoded({extended:true}));
-
+app.use(bodyparser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.get('/', function (req, res) {
 
     let today = new Date();
@@ -17,9 +17,10 @@ app.get('/', function (req, res) {
         day: "numeric",
         month: "long"
     };
-    let day = today.toLocaleDateString("en-US",options);
+    let day = today.toLocaleDateString("en-US", options);
 
-    res.render("list", {ejsList:itemlist , ejsday:day
+    res.render("list", {
+        ejsList: itemlist, ejsday: day
 
     });
 
@@ -28,7 +29,7 @@ app.get('/', function (req, res) {
 app.post("/", function (req, res) {
     let item = req.body.inputItem;
 
-        itemlist.push(item);
+    itemlist.push(item);
     res.redirect("/");
 });
 
