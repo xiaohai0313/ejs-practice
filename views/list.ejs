@@ -1,0 +1,23 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+</head>
+
+<body>
+<h1><%= ejsday %></h1>
+    <% for (let i=0;i<ejsList.length;i++){ %>
+    <li><%= ejsList[i] %></li>
+    <%  }%>
+
+    <form action="/" method="post">
+
+        <input type="text" name="inputItem">
+        <button type="submit" name="button">Add</button>
+
+    </form>
+
+</body>
+
+</html>
